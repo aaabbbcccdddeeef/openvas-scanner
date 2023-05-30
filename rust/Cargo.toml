@@ -10,5 +10,5 @@ members = [
   "feed",
   "feed-verifier",
   "scanner-api",
-  "models"
+  "models",
 ]
