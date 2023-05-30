@@ -10,32 +10,24 @@ mod error;
 
 mod assign;
 mod call;
-mod context;
 mod declare;
 mod helper;
 mod include;
 mod interpreter;
-mod loader;
-mod logger;
-mod lookup_keys;
 mod loop_extension;
 mod operator;
-mod sessions;
 
-pub use context::Context;
-pub use context::ContextType;
-pub use context::DefaultContext;
-pub use context::Register;
 pub use error::FunctionError;
-pub use error::FunctionErrorKind;
 pub use error::InterpretError;
 pub use error::InterpretErrorKind;
+pub use nasl_builtin_utils::context::{Context, ContextType, DefaultContext, Register};
+pub use nasl_builtin_utils::error::FunctionErrorKind;
 
 pub use interpreter::Interpreter;
-pub use loader::*;
-pub use logger::{DefaultLogger, Mode, NaslLogger};
+pub use nasl_builtin_utils::sessions::Sessions;
+pub use nasl_syntax::logger::{DefaultLogger, Mode, NaslLogger};
 pub use nasl_syntax::NaslValue;
-pub use sessions::Sessions;
+pub use nasl_syntax::{FSPluginLoader, Loader, LoadError, AsBufReader, NoOpLoader, load_non_utf8_path};
 
 // Is a type definition for built-in functions
 pub(crate) type NaslFunction<'a, K> =

@@ -6,11 +6,12 @@
 
 use crate::NaslLogger;
 use crate::{
-    error::FunctionErrorKind, sessions::SshSession, Context, ContextType, NaslFunction, NaslValue,
+    FunctionErrorKind, Context, ContextType, NaslFunction, NaslValue,
     Register,
 };
 use core::str;
 use libssh_rs::{AuthMethods, AuthStatus, Channel, LogLevel, Session, SshKey, SshOption};
+use nasl_builtin_utils::sessions::SshSession;
 use std::io::Write;
 use std::net::UdpSocket;
 use std::os::fd::AsRawFd;
@@ -2026,8 +2027,9 @@ pub fn lookup<K>(key: &str) -> Option<NaslFunction<K>> {
 
 #[cfg(test)]
 mod tests {
+    use nasl_builtin_utils::sessions::Sessions;
+
     use super::*;
-    use crate::sessions::Sessions;
     #[test]
     fn get_next_session_id() {
         let all_sessions = Sessions::default();

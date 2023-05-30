@@ -1,6 +1,8 @@
 
 [workspace]
 members = [
+  "nasl-builtin-core",
+  "nasl-builtin-utils",
   "nasl-syntax",
   "nasl-interpreter",
   "nasl-cli",

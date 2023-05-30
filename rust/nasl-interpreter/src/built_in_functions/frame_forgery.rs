@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 //! Defines NASL frame forgery and arp functions
+use nasl_builtin_utils::context::Context;
+use nasl_builtin_utils::error::FunctionErrorKind;
 use pnet::datalink::interfaces;
 use pnet_base::MacAddr;
 use std::fmt;
@@ -14,7 +16,7 @@ use std::{
 use pcap::{Address, Capture, Device};
 
 use crate::{
-    context::Context, error::FunctionErrorKind, ContextType, NaslFunction, NaslValue, Register,
+   ContextType, NaslFunction, NaslValue, Register,
 };
 
 /// Hardware type ethernet

@@ -4,8 +4,10 @@
 
 use std::str;
 
+use nasl_builtin_utils::{error::FunctionErrorKind, lookup_keys::TARGET};
+
 use crate::{
-    error::FunctionErrorKind, lookup_keys::TARGET, Context, NaslFunction, NaslValue, Register,
+    Context, NaslFunction, NaslValue, Register,
 };
 
 /// Resolves IP address of target to hostname

@@ -2,14 +2,13 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+use nasl_builtin_utils::lookup_keys::FC_ANON_ARGS;
 use nasl_syntax::{Statement, Statement::*, Token};
 
 use crate::{
     error::{FunctionError, InterpretError},
     interpreter::InterpretResult,
-    lookup,
-    lookup_keys::FC_ANON_ARGS,
-    ContextType, Interpreter, NaslValue,
+    lookup, ContextType, Interpreter, NaslValue,
 };
 use std::collections::HashMap;
 
@@ -88,7 +87,7 @@ where
 mod tests {
     use nasl_syntax::parse;
 
-    use crate::{context::DefaultContext, context::Register, Interpreter, NaslValue};
+    use crate::{DefaultContext, Interpreter, NaslValue, Register};
 
     #[test]
     fn default_null_on_user_defined_functions() {

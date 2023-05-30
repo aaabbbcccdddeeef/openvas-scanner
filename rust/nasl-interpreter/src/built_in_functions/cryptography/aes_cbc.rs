@@ -12,7 +12,7 @@ use aes::{
 };
 use cbc::{Decryptor, Encryptor};
 
-use crate::{error::FunctionErrorKind, Context, NaslFunction, NaslValue, Register};
+use crate::{FunctionErrorKind, Context, NaslFunction, NaslValue, Register};
 
 use super::{get_data, get_iv, get_key, get_len, Crypt};
 
@@ -32,7 +32,7 @@ where
             let res = Encryptor::<D>::new_from_slices(key, iv);
             match res {
                 Ok(encryptor) => Ok(encryptor.encrypt_padded_vec_mut::<ZeroPadding>(data).into()),
-                Err(e) => Err(crate::error::FunctionErrorKind::WrongArgument(
+                Err(e) => Err(FunctionErrorKind::WrongArgument(
                     e.to_string(),
                 )),
             }
@@ -55,10 +55,12 @@ where
             }
             let res = Decryptor::<D>::new_from_slices(key, iv);
             match res {
-                Ok(decryptor) => Ok(decryptor.decrypt_padded_vec_mut::<NoPadding>(data)?[..len]
+                Ok(decryptor) => Ok(decryptor.decrypt_padded_vec_mut::<NoPadding>(data).map_err(|e| {
+                    FunctionErrorKind::WrongArgument(e.to_string())
+                })?[..len]
                     .to_vec()
                     .into()),
-                Err(e) => Err(crate::error::FunctionErrorKind::WrongArgument(
+                Err(e) => Err(FunctionErrorKind::WrongArgument(
                     e.to_string(),
                 )),
             }

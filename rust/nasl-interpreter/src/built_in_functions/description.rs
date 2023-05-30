@@ -4,11 +4,7 @@
 
 use std::str::FromStr;
 
-use crate::{
-    context::{Context, Register},
-    error::FunctionErrorKind,
-    NaslFunction, NaslValue,
-};
+use crate::{Context, FunctionErrorKind, NaslFunction, NaslValue, Register};
 
 use storage::nvt::{NVTField, NvtPreference, NvtRef, PreferenceType, TagKey, TagValue};
 

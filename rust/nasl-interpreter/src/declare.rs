@@ -74,7 +74,7 @@ impl<'a, K> DeclareVariableExtension for Interpreter<'a, K> {
 mod tests {
     use nasl_syntax::parse;
 
-    use crate::{context::Register, DefaultContext, Interpreter, NaslValue};
+    use crate::{Register, DefaultContext, Interpreter, NaslValue};
 
     #[test]
     fn declare_local() {

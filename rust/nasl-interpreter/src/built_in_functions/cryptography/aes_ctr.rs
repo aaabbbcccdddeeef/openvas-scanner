@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-use crate::{error::FunctionErrorKind, Context};
+use crate::Context;
 use aes::{
     cipher::{
         BlockCipher, BlockDecrypt, BlockEncrypt, BlockSizeUser, KeyIvInit, StreamCipher,
@@ -11,6 +11,7 @@ use aes::{
     Aes128, Aes192, Aes256,
 };
 use digest::typenum::U16;
+use nasl_builtin_utils::error::FunctionErrorKind;
 
 use crate::{NaslFunction, NaslValue, Register};
 

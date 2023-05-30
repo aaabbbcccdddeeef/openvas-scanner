@@ -2,10 +2,8 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-use crate::{
-    error::{FunctionErrorKind, FunctionErrorKind::GeneralError},
-    Context,
-};
+// FunctionErrorKind::GeneralError
+use crate::Context;
 use aes::{
     cipher::{BlockCipher, BlockDecrypt, BlockEncrypt, BlockSizeUser, KeyInit},
     Aes128, Aes192, Aes256,
@@ -15,6 +13,7 @@ use aes_gcm::{
     AesGcm,
 };
 use digest::typenum::{U12, U16};
+use nasl_builtin_utils::error::FunctionErrorKind;
 
 use crate::{NaslFunction, NaslValue, Register};
 
@@ -67,7 +66,9 @@ where
             },
             Crypt::Encrypt => Ok(x.into()),
         },
-        Err(_) => Err(GeneralError("Authentication failed".to_string())),
+        Err(_) => Err(FunctionErrorKind::WrongArgument(
+            "Authentication failed".to_string(),
+        )),
     }
 }
 

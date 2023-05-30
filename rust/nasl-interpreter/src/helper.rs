@@ -4,7 +4,8 @@
 
 use std::{fmt::Write, num::ParseIntError};
 
-use crate::error::FunctionErrorKind;
+use nasl_builtin_utils::error::FunctionErrorKind;
+
 
 pub fn decode_hex(s: &str) -> Result<Vec<u8>, ParseIntError> {
     (0..s.len())

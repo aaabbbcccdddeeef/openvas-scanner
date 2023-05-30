@@ -9,7 +9,9 @@
 
 use std::collections::HashMap;
 
-use crate::{error::FunctionErrorKind, Context, NaslFunction, NaslValue, Register};
+use nasl_builtin_utils::error::FunctionErrorKind;
+
+use crate::{Context, NaslFunction, NaslValue, Register};
 
 use super::resolve_positional_arguments;
 

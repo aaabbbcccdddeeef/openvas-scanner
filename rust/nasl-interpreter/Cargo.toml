@@ -7,6 +7,7 @@ license = "GPL-2.0-or-later"
 [dependencies]
 nasl-syntax = {path = "../nasl-syntax"}
 storage = {path = "../storage"}
+nasl-builtin-utils = {path = "../nasl-builtin-utils"}
 # used for !~ =~ string regex operations
 regex = "1"
 hmac = "0.12.1"
@@ -30,3 +31,4 @@ aes-gcm = { version = "0.10.1"}
 cmac = "0.7.2"
 #libssh-rs = "0.1.8"
 libssh-rs = {git = "https://github.com/wez/libssh-rs.git", branch = "main"}
+

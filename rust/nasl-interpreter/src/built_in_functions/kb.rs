@@ -4,9 +4,10 @@
 
 use std::time::{SystemTime, UNIX_EPOCH};
 
+use nasl_builtin_utils::error::FunctionErrorKind;
 use storage::{Field, Kb, Retrieve};
 
-use crate::{error::FunctionErrorKind, Context, NaslFunction, NaslValue, Register};
+use crate::{Context, NaslFunction, NaslValue, Register};
 
 use super::get_named_parameter;
 

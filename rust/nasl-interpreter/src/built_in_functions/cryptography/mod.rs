@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+use nasl_builtin_utils::error::FunctionErrorKind;
+
 use crate::{
-    error::FunctionErrorKind::{self, GeneralError},
     ContextType, NaslFunction, NaslValue, Register,
 };
 
@@ -89,7 +90,7 @@ fn get_len(register: &Register) -> Result<Option<usize>, FunctionErrorKind> {
         None => Ok(None),
         Some(x) => match x.try_into() {
             Ok(y) => Ok(Some(y)),
-            Err(_) => Err(GeneralError(format!(
+            Err(_) => Err(FunctionErrorKind::WrongArgument(format!(
                 "System only supports numbers between {:?} and {:?} but was {:?}",
                 usize::MIN,
                 usize::MAX,

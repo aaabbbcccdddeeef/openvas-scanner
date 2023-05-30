@@ -6,6 +6,7 @@
 
 use std::sync::{Arc, Mutex};
 
+// TODO remove this in favor of generics
 use libssh_rs::{AuthMethods, Channel, Session};
 
 /// Structure to hold an SSH Session

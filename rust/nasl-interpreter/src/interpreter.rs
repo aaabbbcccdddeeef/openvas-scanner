@@ -10,12 +10,11 @@ use storage::StorageError;
 use crate::{
     assign::AssignExtension,
     call::CallExtension,
-    context::{Context, ContextType, Register},
     declare::{DeclareFunctionExtension, DeclareVariableExtension},
     include::IncludeExtension,
     loop_extension::LoopExtension,
     operator::OperatorExtension,
-    InterpretError, InterpretErrorKind, LoadError, NaslValue,
+    Context, ContextType, InterpretError, InterpretErrorKind, LoadError, NaslValue, Register,
 };
 
 /// Used to interpret a Statement

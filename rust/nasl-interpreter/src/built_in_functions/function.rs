@@ -4,7 +4,9 @@
 
 //! Defines various built-in functions for NASL functions.
 
-use crate::{error::FunctionErrorKind, Context, ContextType, NaslFunction, NaslValue, Register};
+use nasl_builtin_utils::error::FunctionErrorKind;
+
+use crate::{Context, ContextType, NaslFunction, NaslValue, Register};
 
 use super::resolve_positional_arguments;
 

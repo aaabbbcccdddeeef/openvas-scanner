@@ -2,8 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+use nasl_builtin_utils::{lookup_keys::FC_ANON_ARGS, error::FunctionErrorKind};
+
 use crate::{
-    error::FunctionErrorKind, lookup_keys::FC_ANON_ARGS, ContextType, NaslFunction, NaslValue,
+    ContextType, NaslFunction, NaslValue,
     Register,
 };
 

@@ -1315,6 +1315,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "nasl-builtin-core"
+version = "0.1.0"
+
+[[package]]
+name = "nasl-builtin-utils"
+version = "0.1.0"
+dependencies = [
+ "libssh-rs",
+ "nasl-syntax",
+ "storage",
+]
+
+[[package]]
 name = "nasl-cli"
 version = "0.1.0"
 dependencies = [
@@ -1347,6 +1360,7 @@ dependencies = [
  "libssh-rs",
  "md-5",
  "md2",
+ "nasl-builtin-utils",
  "nasl-syntax",
  "pcap",
  "pnet",

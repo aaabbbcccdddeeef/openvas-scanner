@@ -13,11 +13,12 @@ use hex::encode;
 use hmac::{Hmac, Mac};
 use md2::Md2;
 use md5::Md5;
+use nasl_builtin_utils::error::FunctionErrorKind;
 use ripemd::Ripemd160;
 use sha1::Sha1;
 use sha2::{Sha256, Sha384, Sha512};
 
-use crate::{error::FunctionErrorKind, Context, ContextType, NaslFunction, NaslValue, Register};
+use crate::{Context, ContextType, NaslFunction, NaslValue, Register};
 
 fn hmac<D>(register: &Register) -> Result<NaslValue, FunctionErrorKind>
 where

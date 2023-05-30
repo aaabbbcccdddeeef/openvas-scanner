@@ -10,8 +10,9 @@ use ccm::{
     Ccm, KeyInit, NonceSize, TagSize,
 };
 use digest::generic_array::ArrayLength;
+use nasl_builtin_utils::error::{FunctionErrorKind, GeneralErrorType};
 
-use crate::{error::FunctionErrorKind, Context, NaslFunction, NaslValue, Register};
+use crate::{Context, NaslFunction, NaslValue, Register};
 
 use super::{get_aad, get_data, get_iv, get_key, get_len, Crypt};
 
@@ -56,8 +57,8 @@ where
     // Error handling
     match res {
         Ok(x) => Ok(NaslValue::Data(x)),
-        Err(_) => Err(crate::error::FunctionErrorKind::GeneralError(
-            "unable to en-/decrypt data".to_string(),
+        Err(_) => Err(FunctionErrorKind::GeneralError(
+            GeneralErrorType::UnexpectedData("unable to en-/decrypt data".to_string()),
         )),
     }
 }

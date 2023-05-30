@@ -4,6 +4,7 @@
 
 use aes::Aes128;
 use cmac::{Cmac, Mac};
+use nasl_builtin_utils::error::GeneralErrorType;
 
 use crate::{
     built_in_functions::cryptography::{get_data, get_key},
@@ -19,7 +20,8 @@ fn aes_cmac<K>(register: &Register, _: &Context<K>) -> Result<NaslValue, Functio
     let key = get_key(register)?;
     let data = get_data(register)?;
 
-    let mut mac = Cmac::<Aes128>::new_from_slice(key)?;
+    let mut mac = Cmac::<Aes128>::new_from_slice(key)
+        .map_err(|e| GeneralErrorType::UnexpectedData(format!("CMAC: {}", e)))?;
     mac.update(data);
 
     Ok(mac.finalize().into_bytes().to_vec().into())

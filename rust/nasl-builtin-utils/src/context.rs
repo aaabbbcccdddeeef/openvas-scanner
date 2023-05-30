@@ -2,10 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-use nasl_syntax::Statement;
+use nasl_syntax::{Statement, logger::NaslLogger, Loader, NaslValue};
 use storage::{DefaultDispatcher, Dispatcher, Retriever};
 
-use crate::{logger::NaslLogger, lookup_keys::FC_ANON_ARGS, sessions::Sessions, Loader, NaslValue};
+use crate::{lookup_keys::FC_ANON_ARGS, sessions::Sessions};
 
 /// Contexts are responsible to locate, add and delete everything that is declared within a NASL plugin
 

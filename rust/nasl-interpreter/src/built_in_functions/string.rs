@@ -7,8 +7,8 @@
 use core::fmt::Write;
 
 use crate::{
-    context::ContextType,
-    error::FunctionErrorKind,
+    ContextType,
+    FunctionErrorKind,
     helper::{decode_hex, encode_hex},
     Context, NaslFunction, NaslValue, Register,
 };

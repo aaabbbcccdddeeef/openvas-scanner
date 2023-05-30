@@ -42,7 +42,7 @@ mod tests {
 
     use nasl_syntax::parse;
 
-    use crate::{context::Register, DefaultContext, Interpreter, LoadError, Loader, NaslValue};
+    use crate::{Register, DefaultContext, Interpreter, LoadError, Loader, NaslValue};
 
     struct FakeInclude {
         plugins: HashMap<String, String>,

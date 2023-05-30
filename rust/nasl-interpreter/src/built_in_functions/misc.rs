@@ -17,10 +17,11 @@ use chrono::{
     Timelike, Utc,
 };
 
-use crate::{error::FunctionErrorKind, Context, ContextType, NaslFunction, NaslValue, Register};
+use crate::{Context, ContextType, NaslFunction, NaslValue, Register};
 use flate2::{
     read::GzDecoder, read::ZlibDecoder, write::GzEncoder, write::ZlibEncoder, Compression,
 };
+use nasl_builtin_utils::error::FunctionErrorKind;
 
 #[inline]
 #[cfg(unix)]
